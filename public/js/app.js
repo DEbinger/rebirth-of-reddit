@@ -7,7 +7,7 @@ function reqListener(){
   var pug = JSON.parse(this.responseText);
 
 
-  for (var i = 0; i < 10; i++){
+  for (var i = 0; i < 25; i++){
 
     var articleContainer = document.createElement('div');
     articleContainer.className = 'article-container';
@@ -16,8 +16,6 @@ function reqListener(){
     var pugPic = document.createElement('img');
     pugPic.className = "image-card";
     pugPic.setAttribute('src', pug.data.children[i].data.preview.images[0].source.url);
-    pugPic.setAttribute("height", "170");
-    pugPic.setAttribute("width", "275");
     document.getElementsByClassName('article-container')[0].appendChild(pugPic);
 
     var titleDivCreate = document.createElement('div');
@@ -32,6 +30,12 @@ function reqListener(){
     authorDivCreate.appendChild(author);
     document.getElementsByClassName('article-container')[0].appendChild(authorDivCreate);
 
+    var createdDateDivCreate = document.createElement('div');
+    createdDateDivCreate.className = 'createdDate';
+    var createdDate = document.createTextNode(pug.data.children[i].data.utc_created);
+    createdDateDivCreate.appendChild(createdDate);
+    document.getElementsByClassName('article-container')[0].appendChild(createdDateDivCreate);
+
     var viewDivCreate = document.createElement('div');
     viewDivCreate.className = 'views';
     var views = document.createTextNode(pug.data.children[i].data.num_comments);
@@ -43,6 +47,7 @@ function reqListener(){
     var scores = document.createTextNode(pug.data.children[i].data.score);
     scoreDivCreate.appendChild(scores);
     document.getElementsByClassName('article-container')[0].appendChild(scoreDivCreate);
+
   }
 
 }
