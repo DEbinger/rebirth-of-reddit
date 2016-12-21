@@ -6,8 +6,7 @@ function reqListener(){
 
   var pug = JSON.parse(this.responseText);
 
-
-  for (var i = 0; i < 25; i++){
+  for (var i = 0; i < 10; i++){
 
     var articleContainer = document.createElement('div');
     articleContainer.className = 'article-container';
@@ -23,6 +22,7 @@ function reqListener(){
     var pugTitle = document.createTextNode(pug.data.children[i].data.title);
     titleDivCreate.appendChild(pugTitle);
     document.getElementsByClassName('article-container')[0].appendChild(titleDivCreate);
+    //document.getElementById().innerHTML
 
     var authorDivCreate = document.createElement('div');
     authorDivCreate.className = 'author';
@@ -30,11 +30,13 @@ function reqListener(){
     authorDivCreate.appendChild(author);
     document.getElementsByClassName('article-container')[0].appendChild(authorDivCreate);
 
+    //var utc = utc_created;
     var createdDateDivCreate = document.createElement('div');
     createdDateDivCreate.className = 'createdDate';
-    var createdDate = document.createTextNode(pug.data.children[i].data.utc_created);
+    var createdDate = document.createTextNode(pug.data.children[i].data.utc);
     createdDateDivCreate.appendChild(createdDate);
     document.getElementsByClassName('article-container')[0].appendChild(createdDateDivCreate);
+    //var dateString = moment(utc).fromNow();
 
     var viewDivCreate = document.createElement('div');
     viewDivCreate.className = 'views';
@@ -52,9 +54,10 @@ function reqListener(){
 
 }
 
+
 var oReq = new XMLHttpRequest();
 oReq.addEventListener('load', reqListener);
-oReq.open('GET', 'https://www.reddit.com/r/pug/.json');
+oReq.open('GET', 'https://www.reddit.com/r/pug.json');
 oReq.send();
 
 
