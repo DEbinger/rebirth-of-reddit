@@ -22,21 +22,18 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline; }
 
-h1 {
-  //background-color: white;
-}
+$oswald-font:'Oswald', serif;
 
+/* Smartphones (landscape) ----------- */
+@media only screen and (max-width : 321px) {
 body {
-  //background-color: white;
-/*   margin: 0;
-  padding: 0;
-  border: 0; */
+        background-color: lightgreen;
+    }
 }
 
-/* header {
-  justify-content: center;
+@media screen and (min-width: 1200px) {
 
-} */
+}
 
 ul {
     width: 100%;
@@ -54,14 +51,17 @@ li {
     font-family: 'Oswald', serif;
     list-style-type: none;
     align: center;
-    //float: left;
-    //display: block;
     padding: 8px;
     color: rgb(129, 130, 133);
+    font-size: 25px;
 }
 
-.nav-menu {
-  //font-family: 'Oswald', serif;
+.anchor {
+  text-decoration: none;
+  color: rgb(129, 130, 133);
+}
+.anchor:hover{
+  color: rgb(241, 89, 42);
 }
 
 #logo {
@@ -88,15 +88,19 @@ li {
 }
 
 #logo-icon {
-  box-sizing: border-box;
-  line-height: 30px;
-  height: 30px;
-  width: 30px;
-  text-align: center;
-  font-size: 45px;
-  color: rgb(183, 67, 38);
-  border: solid coral;
-  border-style: 20px;
+  position: absolute;
+  margin-left: 900px;
+  color: rgb(241, 89, 42);
+  background-color: rgb(256, 256, 256);
+  font-size: 40px;
+  border-color: rgb(241, 89, 42);
+ }
+
+#logo-icon:hover {
+  color: white;
+  background-color: rgb(241, 89, 42);
+  border-color: rgb(241, 89, 42);
+  font-size: 40px;
 }
 
 #content-container {
@@ -105,32 +109,101 @@ li {
   align-items: center;
   justify-content: center;
   background-image: url("assets/bg.jpg");
+  width: 100%;
+  //max-width: 2000px;
 }
 
 .article-container {
+  margin: 1rem;
+  box-sizing: border-box;
+  background-size: "cover";
   background-color: rgb(255, 255, 255);
-  border-style: solid yellow;
-  border-width: 20px;
   font-family: 'Lato', serif;
+  height: 500px;
+  //width: 33%;
+  padding: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  flex: 0 0 33%;
+  justify-content: center;
+  font-size: 30px;
+  color: rgb(143, 145, 148)
 }
+
+.article-container:hover {
+  border-color: rgb(247, 148, 30);
+  border-style: solid;
+  border-width: 5px;
+}
+
 .headline {
+
   font-weight: bold;
+  color: rgb(185, 67, 38)
 }
+
 .author {
-  font-size: 30;
+  /* padding: 3rem; */
+  font-size: 18px;
+  position: relative;
 }
 
 .image-card {
-  background-position: center center;
-  weight: 400px;
-  height: 280px;
+  padding: 2rem;
+  height: 200px;
+  width: 350px;
+  border-width: 100px;
+  margin: 10px;
+  background-position: center;
+  display: flex;
+  flex-wrap: row nowrap;
+}
+.image
+
+footer {
+  background-color: rgb(58, 58, 60);
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items:center;
+  margin: auto;
 }
 
-.image {
-
-}
-
-#foot {
-  background-image: url("assets/facebook_grey.svg");
+#insta {
+  background-color: rgb(58, 58, 60);
+  height: 2rem;
+  width: 100%;
   background-image: url("assets/instagram_grey.svg");
+  background-repeat: no-repeat;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items:center;
+}
+
+
+#facebook {
+  background-color: rgb(58, 58, 60);
+  height: 2rem;
+  width: 100%;
+  background-image: url("assets/facebook_grey.svg");
+  background-repeat: no-repeat;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items:center;
+}
+
+#insta:hover {
+  background-color: rgb(58, 58, 60);
+  height: 2rem;
+  //width: 100%;
+  background-image: url("assets/instagram_orange.svg");
+  background-repeat: no-repeat;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items:center;
 }
