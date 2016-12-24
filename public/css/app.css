@@ -22,10 +22,17 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline; }
 
-/* Smartphones (landscape) ----------- */
-@media only screen and (max-width: 321px) {
+@media screen and (max-width: 600px) {
   body {
     background-color: lightgreen; } }
+
+@media screen and (min-width: 601px) {
+  body {
+    background-color: red; } }
+
+@media screen and (min-width: 1200px) {
+  body {
+    background-color: white; } }
 
 ul {
   width: 100%;
@@ -108,7 +115,7 @@ li {
   flex-flow: row wrap;
   flex: 0 0 33%;
   justify-content: center;
-  font-size: 30px;
+  font-size: 1rem;
   color: #8f9194; }
 
 .article-container:hover {
@@ -117,16 +124,16 @@ li {
   border-width: 5px; }
 
 .headline {
+  font-size: 2rem;
   font-weight: bold;
   color: #b94326; }
 
 .author {
-  /* padding: 3rem; */
-  font-size: 18px;
+  font-size: 1rem;
   position: relative; }
 
 .image-card {
-  padding: 2rem;
+  padding: 2.5rem;
   height: 200px;
   width: 350px;
   border-width: 100px;
@@ -135,7 +142,9 @@ li {
   display: flex;
   flex-wrap: row nowrap; }
 
-.image
+.time-ago {
+  background-color: red; }
+
 footer {
   background-color: #3a3a3c;
   height: 2rem;

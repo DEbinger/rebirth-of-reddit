@@ -6,7 +6,7 @@ function reqListener(){
 
   let pug = JSON.parse(this.responseText);
 
-  for (let i = 0; i < 24; i++){
+  for (let i = 0; i < pug.data.children.length; i++){
 
     let articleContainer = document.createElement('div');
     articleContainer.className = 'article-container';
@@ -25,6 +25,13 @@ function reqListener(){
     titleDivCreate.appendChild(pugTitle);
     articleContainer.appendChild(titleDivCreate);
 
+    let linkDivCreate = document.createElement('a');
+    linkDivCreate.className = 'linkAnchor';
+    linkDivCreate.href = `http://reddit.com${pug.data.children[i].data.permalink}`;
+    linkDivCreate.target = '_blank';
+    //linkDivCreate.appendChild(link);
+    articleContainer.appendChild(linkDivCreate);
+
     let authorDivCreate = document.createElement('div');
     authorDivCreate.className = 'author';
     let author = document.createTextNode(pug.data.children[i].data.author);
@@ -33,10 +40,11 @@ function reqListener(){
 
     let dateDivCreate = document.createElement('div');
     dateDivCreate.className = 'time-ago';
-    var date = moment.unix(pug.data.children[i].data.created_utc);
-    var today = new Date();
-    var duration = document.createTextNode(date.from(today));
-    dateDivCreate.innerHTML = duration;
+    let date = moment.unix(pug.data.children[i].data.created_utc);
+    let today = new Date();
+    let duration = document.createTextNode(date.from(today));
+    dateDivCreate.appendChild(duration);
+    //dateDivCreate.innerHTML = duration;
     articleContainer.appendChild(duration);
 
     let viewDivCreate = document.createElement('div');
@@ -49,7 +57,7 @@ function reqListener(){
     scoreDivCreate.className = 'scores';
     let scores = document.createTextNode(pug.data.children[i].data.score);
     scoreDivCreate.appendChild(scores);
-    articleContainer.appendChild(scoreDivCreate);
+    titleDivCreate.appendChild(scoreDivCreate);
 
   }
 
